@@ -1,0 +1,1 @@
+import data from '../../mock-data/data.json'
