@@ -1,40 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# TechBilling Development Roadmap ✅
 
-## Getting Started
+## Phase 1: Project Setup
+- [x] Initialize Next.js project
+- [x] Install dependencies (UI framework, chart library)
+- [x] Create base folder structure (`pages`, `components`, etc.)
+- [x] Set up Context API boilerplate
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Phase 2: Mock Data
+- [x] Create `/mock-data` folder
+- [x] Add `data.json` with sample dashboard, requisitos, clientes, invoices
+- [ ] Import and use mock data in pages/components
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Phase 3: Dashboard Page
+- [ ] Create dashboard layout (navigation + content)
+- [ ] Implement charts (monthly & yearly revenue, invoices, clients)
+- [ ] Style with chosen UI framework
+- [ ] Add loading states if needed
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+---
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## Phase 4: Requisitos Page
+- [ ] Create list of compliance requirements
+- [ ] Add “check” functionality with Context API
+- [ ] Persist checked state (localStorage optional)
+- [ ] Ensure responsiveness
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Phase 5: Simulação de Fatura
+- [ ] Build form (customer, items, date)
+- [ ] Generate invoice preview (frontend only)
+- [ ] Add form validation (optional)
+- [ ] Style preview clearly
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Phase 6: Componentization & Responsiveness
+- [ ] Refactor into reusable components (cards, charts, inputs)
+- [ ] Ensure responsive layout (desktop, tablet, mobile)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+## Phase 7: Final Touches
+- [ ] Write README with install/run instructions
+- [ ] Record demo video walkthrough
+- [ ] Push final code to GitHub
