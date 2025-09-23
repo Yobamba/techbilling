@@ -1,6 +1,14 @@
 {
-  "dashboard": {
-    "monthlyRevenue": [
+  "billingMetrics": {
+    "monthlyRevenue": 22000,
+    "annualRevenue": 240000,
+    "invoicesIssued": 320,
+    "activeCustomers": 58,
+    "revenueGrowth": 15,
+    "customerGrowth": 10
+  },
+  "revenueData": {
+    "monthly": [
       { "month": "Jan", "value": 12000 },
       { "month": "Feb", "value": 15000 },
       { "month": "Mar", "value": 17000 },
@@ -8,12 +16,10 @@
       { "month": "May", "value": 20000 },
       { "month": "Jun", "value": 22000 }
     ],
-    "yearlyRevenue": [
+    "yearly": [
       { "year": 2023, "value": 180000 },
       { "year": 2024, "value": 240000 }
-    ],
-    "invoicesIssued": 320,
-    "activeClients": 58
+    ]
   },
   "requisitos": [
     {

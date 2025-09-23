@@ -92,8 +92,9 @@ export default function HomePage() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Create professional invoice previews with our easy-to-use form. Perfect for testing and client
                   presentations.
+                
                 </p>
-                <Button asChild variant="outline" className="w-full bg-transparent">
+                <Button asChild variant="contained" className="w-full">
                   <Link href="/invoice">
                     Create Invoice
                     <ArrowRight className="ml-2 h-4 w-4" />

@@ -16,7 +16,7 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <nav className="bg-sidebar border-r border-sidebar-border">
+    <nav className="bg-sidebar border-r border-sidebar-border min-h-screen">
       <div className="flex flex-col h-full">
         {/* Logo */}
         <div className="flex items-center gap-2 p-6 border-b border-sidebar-border">
