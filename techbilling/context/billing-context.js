@@ -20,8 +20,10 @@ export function BillingProvider({ children }) {
     }, []);
 
     const value = {
-        billingMetrics: billingData?.billingMetrics, // Pass the nested object
+        billingMetrics: billingData?.billingMetrics,
         revenueData: billingData?.revenueData,
+        invoices: billingData?.invoices || [],
+        clients: billingData?.clients || [],
         selectedPeriod,
         setSelectedPeriod,
         updateRevenue: (newRevenue) => {
