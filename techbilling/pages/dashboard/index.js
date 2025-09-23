@@ -113,7 +113,9 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-primary">
-                  ${Math.round(billingMetrics.monthlyRevenue / billingMetrics.invoicesIssued).toLocaleString()}
+                  $                  {selectedPeriod === "monthly"
+                    ? Math.round(billingMetrics.monthlyRevenue / billingMetrics.invoicesIssued).toLocaleString()
+                    : Math.round(billingMetrics.annualRevenue / 12 / billingMetrics.invoicesIssued).toLocaleString()}
                 </div>
                 <div className="flex items-center gap-1 text-xs text-muted-foreground">
                   <TrendingDown className="h-3 w-3 text-red-500" />

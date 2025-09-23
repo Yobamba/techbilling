@@ -3,18 +3,24 @@ import { Area, AreaChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'rec
 import { useBilling } from '../../context/billing-context';
 
 export function RevenueChart() {
-    const { revenueData } = useBilling();
+    const { revenueData, selectedPeriod } = useBilling();
     const [chartData, setChartData] = useState([]);
 
     useEffect(() => {
-        if (revenueData?.monthly) {
+        if (selectedPeriod === 'monthly' && revenueData?.monthly) {
             const formattedData = revenueData.monthly.map(item => ({
-                month: item.month,
+                name: item.month,
+                revenue: item.value
+            }));
+            setChartData(formattedData);
+        } else if (selectedPeriod === 'annual' && revenueData?.yearly) {
+            const formattedData = revenueData.yearly.map(item => ({
+                name: item.year.toString(),
                 revenue: item.value
             }));
             setChartData(formattedData);
         }
-    }, [revenueData?.monthly]);
+    }, [revenueData, selectedPeriod]);
 
     return (
         <div className="w-full bg-white rounded-lg shadow p-4">
@@ -32,7 +38,7 @@ export function RevenueChart() {
                             </linearGradient>
                         </defs>
                         <XAxis 
-                            dataKey="month"
+                            dataKey="name"
                             axisLine={false}
                             tickLine={false}
                             tick={{ fontSize: 12, fill: '#6B7280' }}
