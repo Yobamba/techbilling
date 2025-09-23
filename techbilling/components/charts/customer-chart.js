@@ -1,7 +1,7 @@
     "use client"
 
     import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
-    import { ChartContainer, ChartTooltip, ChartTooltipContent } from "../ui/chart"
+    import { ChartContainer, ChartTooltip } from "../ui/chart"
     import { useBilling } from "../../context/billing-context"
     import { Line, LineChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
 
@@ -43,7 +43,7 @@
                     tick={{ fontSize: 12, fill: "hsl(var(--muted-foreground))" }}
                     domain={["dataMin - 5", "dataMax + 5"]}
                 />
-                <ChartTooltip content={<ChartTooltipContent />} formatter={(value) => [value, "Active Customers"]} />
+                <ChartTooltip formatter={(value) => [value, "Active Customers"]} />
                 <Line
                     type="monotone"
                     dataKey="customers"
