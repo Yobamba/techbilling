@@ -6,13 +6,10 @@ import { useBilling } from "../../context/billing-context"
 import { TrendingUp, Target, Zap } from "lucide-react"
 
 export function MetricsOverview() {
-  const { billingMetrics, selectedPeriod } = useBilling()
+  const { dashboardStats, selectedPeriod } = useBilling()
 
   const revenueTarget = selectedPeriod === "monthly" ? 150000 : 1500000
-  const revenueProgress =
-    selectedPeriod === "monthly"
-      ? (billingMetrics.monthlyRevenue / revenueTarget) * 100
-      : (billingMetrics.annualRevenue / revenueTarget) * 100
+  const revenueProgress = (dashboardStats.revenue / revenueTarget) * 100
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -33,10 +30,7 @@ export function MetricsOverview() {
             <Progress value={revenueProgress} className="h-2" />
             <div className="flex justify-between text-xs text-muted-foreground">
               <span>
-                $
-                {selectedPeriod === "monthly"
-                  ? billingMetrics.monthlyRevenue.toLocaleString()
-                  : billingMetrics.annualRevenue.toLocaleString()}
+                ${dashboardStats.revenue.toLocaleString()}
               </span>
               <span>${revenueTarget.toLocaleString()}</span>
             </div>
@@ -56,11 +50,11 @@ export function MetricsOverview() {
           <div className="space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-sm">Revenue Growth</span>
-              <span className="text-lg font-bold text-secondary">+{billingMetrics.revenueGrowth}%</span>
+              <span className="text-lg font-bold text-secondary">+{Math.round(dashboardStats.revenueGrowth)}%</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm">Customer Growth</span>
-              <span className="text-lg font-bold text-accent">+{billingMetrics.customerGrowth}%</span>
+              <span className="text-lg font-bold text-accent">+{Math.round(dashboardStats.customerGrowth)}%</span>
             </div>
           </div>
         </CardContent>

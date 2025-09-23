@@ -13,13 +13,26 @@
     }
 
     export function CustomerChart() {
-    const { revenueData } = useBilling()
-    
-    // Transform the data for customer growth visualization
+    const { revenueData, selectedPeriod } = useBilling();
+
+    if (selectedPeriod === 'annual') {
+        return (
+            <Card className="border-border">
+                <CardHeader>
+                    <CardTitle className="font-playfair text-xl">Customer Growth</CardTitle>
+                    <CardDescription>Active customer count over time</CardDescription>
+                </CardHeader>
+                <CardContent className="h-[300px] flex items-center justify-center">
+                    <p className="text-muted-foreground">Annual customer growth data is not available.</p>
+                </CardContent>
+            </Card>
+        );
+    }
+
     const chartData = revenueData?.monthly?.map(item => ({
         month: item.month,
         customers: item.customers || 0
-    })) || []
+    })) || [];
 
     return (
         <Card className="border-border">

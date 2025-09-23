@@ -3,27 +3,38 @@ import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip } from 'recha
 import { useBilling } from '../../context/billing-context';
 
 export function InvoiceChart() {
-    const { invoices } = useBilling();
+    const { invoices, selectedPeriod } = useBilling();
     const [chartData, setChartData] = useState([]);
 
     useEffect(() => {
-        if (invoices.length > 0) {
-            // Group invoices by month
+        if (!invoices || invoices.length === 0) return;
+
+        if (selectedPeriod === 'monthly') {
             const monthlyData = invoices.reduce((acc, invoice) => {
                 const month = new Date(invoice.date).toLocaleString('default', { month: 'short' });
                 acc[month] = (acc[month] || 0) + 1;
                 return acc;
             }, {});
 
-            // Format data for the chart
             const formattedData = Object.entries(monthlyData).map(([month, count]) => ({
-                month,
+                name: month,
                 invoices: count
             }));
+            setChartData(formattedData);
+        } else if (selectedPeriod === 'annual') {
+            const yearlyData = invoices.reduce((acc, invoice) => {
+                const year = new Date(invoice.date).getFullYear();
+                acc[year] = (acc[year] || 0) + 1;
+                return acc;
+            }, {});
 
+            const formattedData = Object.entries(yearlyData).map(([year, count]) => ({
+                name: year,
+                invoices: count
+            }));
             setChartData(formattedData);
         }
-    }, [invoices]);
+    }, [invoices, selectedPeriod]);
 
     return (
         <div className="w-full bg-white rounded-lg shadow p-4">
@@ -35,7 +46,7 @@ export function InvoiceChart() {
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={chartData}>
                         <XAxis 
-                            dataKey="month"
+                            dataKey="name"
                             axisLine={false}
                             tickLine={false}
                             tick={{ fontSize: 12, fill: '#6B7280' }}

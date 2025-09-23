@@ -12,15 +12,22 @@ import { MetricsOverview } from "../../components/dashboard/metrics-overview"
 import { TrendingUp, TrendingDown, DollarSign, FileText, Users, Calendar } from "lucide-react"
 
 export default function DashboardPage() {
-  const { billingMetrics, selectedPeriod, setSelectedPeriod } = useBilling()
+  const { dashboardStats, selectedPeriod, setSelectedPeriod } = useBilling()
 
-  console.log('billingMetrics:', billingMetrics)
-  console.log('selectedPeriod:', selectedPeriod)
-  console.log("testing")
-
-  if (!billingMetrics) {
+  if (!dashboardStats) {
     return <div className="flex min-h-screen items-center justify-center">Loading...</div>
   }
+
+  const renderGrowth = (growth) => {
+    const roundedGrowth = Math.round(growth);
+    if (roundedGrowth > 0) {
+      return <><TrendingUp className="h-3 w-3 text-green-500" />+{roundedGrowth}% from last period</>;
+    } else if (roundedGrowth < 0) {
+      return <><TrendingDown className="h-3 w-3 text-red-500" />{roundedGrowth}% from last period</>;
+    } else {
+      return <>No change from last period</>;
+    }
+  };
 
   return (
     <div className="flex min-h-screen bg-background">
@@ -68,13 +75,10 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-primary">
-                  $
-                  {selectedPeriod === "monthly"
-                    ? billingMetrics.monthlyRevenue.toLocaleString() || '0'
-                    : billingMetrics.annualRevenue.toLocaleString() || '0'}
+                  ${dashboardStats.revenue.toLocaleString() || '0'}
                 </div>
                 <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <TrendingUp className="h-3 w-3 text-green-500" />+{billingMetrics.revenueGrowth}% from last period
+                  {renderGrowth(dashboardStats.revenueGrowth)}
                 </div>
               </CardContent>
             </Card>
@@ -85,10 +89,9 @@ export default function DashboardPage() {
                 <FileText className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-secondary">{billingMetrics.invoicesIssued}</div>
+                <div className="text-2xl font-bold text-secondary">{dashboardStats.invoices}</div>
                 <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <TrendingUp className="h-3 w-3 text-green-500" />
-                  +15% from last month
+                  {renderGrowth(dashboardStats.invoiceGrowth)}
                 </div>
               </CardContent>
             </Card>
@@ -99,9 +102,9 @@ export default function DashboardPage() {
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold text-accent">{billingMetrics.activeCustomers}</div>
+                <div className="text-2xl font-bold text-accent">{dashboardStats.customers}</div>
                 <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <TrendingUp className="h-3 w-3 text-green-500" />+{billingMetrics.customerGrowth}% growth
+                  {renderGrowth(dashboardStats.customerGrowth)}
                 </div>
               </CardContent>
             </Card>
@@ -113,14 +116,9 @@ export default function DashboardPage() {
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-primary">
-                  $                  {selectedPeriod === "monthly"
-                    ? Math.round(billingMetrics.monthlyRevenue / billingMetrics.invoicesIssued).toLocaleString()
-                    : Math.round(billingMetrics.annualRevenue / 12 / billingMetrics.invoicesIssued).toLocaleString()}
+                  ${Math.round(dashboardStats.avgInvoiceValue).toLocaleString()}
                 </div>
-                <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                  <TrendingDown className="h-3 w-3 text-red-500" />
-                  -2.1% from last month
-                </div>
+                <p className="text-xs text-muted-foreground">For the period</p>
               </CardContent>
             </Card>
           </div>
