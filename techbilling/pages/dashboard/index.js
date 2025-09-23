@@ -5,10 +5,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 // import { Badge } from "@/components/ui/badge"
 import { useBilling } from "../../context/billing-context"
-import { RevenueChart } from "@/components/charts/revenue-chart"
-import { InvoiceChart } from "@/components/charts/invoice-chart"
-import { CustomerChart } from "@/components/charts/customer-chart"
-import { MetricsOverview } from "@/components/dashboard/metrics-overview"
+import { RevenueChart } from "../../components/charts/revenue-chart"
+import { InvoiceChart } from "../../components/charts/invoice-chart"
+import { CustomerChart } from "../../components/charts/customer-chart"
+import { MetricsOverview } from "../../components/dashboard/metrics-overview"
 import { TrendingUp, TrendingDown, DollarSign, FileText, Users, Calendar } from "lucide-react"
 
 export default function DashboardPage() {

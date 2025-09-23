@@ -53,10 +53,11 @@ const ChartTooltip = ({
     />
 );
 
-// Reexport commonly used Recharts components
+// Export your custom components
+export { ChartContainer, ChartTooltip, useChart };
+
+// Export Recharts components separately
 export {
-    ChartContainer,
-    ChartTooltip,
     Area,
     AreaChart,
     Bar,
@@ -65,5 +66,3 @@ export {
     YAxis,
     ResponsiveContainer,
 } from 'recharts';
-
-export { useChart };
