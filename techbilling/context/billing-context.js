@@ -3,22 +3,10 @@ import { createContext, useContext, useState, useEffect } from "react";
 const BillingContext = createContext();
 
 export function BillingProvider({ children }) {
-    const [billingData, setBillingData] = useState({
-        revenue: {
-            monthly: [],
-            yearly: 0
-        },
-        invoices: [],
-        clients: [],
-        statistics: {
-            totalInvoices: 0,
-            totalClients: 0,
-            averageInvoiceValue: 0
-        }
-    });
+    const [billingData, setBillingData] = useState(null);
+    const [selectedPeriod, setSelectedPeriod] = useState("monthly"); // Default to monthly
 
     useEffect(() => {
-        // Load mock data
         const loadMockData = async () => {
             try {
                 const data = await import("../mock-data/data.json");
@@ -32,7 +20,10 @@ export function BillingProvider({ children }) {
     }, []);
 
     const value = {
-        ...billingData,
+        billingMetrics: billingData?.billingMetrics, // Pass the nested object
+        revenueData: billingData?.revenueData,
+        selectedPeriod,
+        setSelectedPeriod,
         updateRevenue: (newRevenue) => {
             setBillingData(prev => ({
                 ...prev,
@@ -53,7 +44,7 @@ export function BillingProvider({ children }) {
         }
     };
 
-     return (
+    return (
         <BillingContext.Provider value={value}>
             {children}
         </BillingContext.Provider>
