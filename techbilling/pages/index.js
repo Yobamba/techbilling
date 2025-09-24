@@ -1,3 +1,6 @@
+"use client"
+
+import { useBilling } from "@/context/billing-context"
 import { Navigation } from "@/components/navigation"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -5,9 +8,19 @@ import { ArrowRight, BarChart3, FileCheck, FileText } from "lucide-react"
 import Link from "next/link"
 
 export default function HomePage() {
+  const { dashboardStats } = useBilling()
+
+  if (!dashboardStats) {
+    return (
+      <div className="flex min-h-screen items-center justify-center">
+        Loading...
+      </div>
+    )
+  }
+
   return (
     <div className="flex min-h-screen bg-background">
-      <div className="w-64 flex-shrink-0">
+      <div className="sticky top-0 h-screen w-64 flex-shrink-0">
         <Navigation />
       </div>
 
@@ -92,7 +105,6 @@ export default function HomePage() {
                 <p className="text-sm text-muted-foreground mb-4">
                   Create professional invoice previews with our easy-to-use form. Perfect for testing and client
                   presentations.
-                
                 </p>
                 <Button asChild variant="contained" className="w-full">
                   <Link href="/invoice">
@@ -113,19 +125,23 @@ export default function HomePage() {
             <CardContent>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">$125K</div>
+                  <div className="text-3xl font-bold text-primary">
+                    ${dashboardStats.revenue.toLocaleString()}
+                  </div>
                   <div className="text-sm text-muted-foreground">Monthly Revenue</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-secondary">342</div>
+                  <div className="text-3xl font-bold text-secondary">{dashboardStats.invoices}</div>
                   <div className="text-sm text-muted-foreground">Invoices Issued</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-orange-600">89</div>
+                  <div className="text-3xl font-bold text-orange-600">{dashboardStats.customers}</div>
                   <div className="text-sm text-muted-foreground">Active Customers</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-primary">+12.5%</div>
+                  <div className="text-3xl font-bold text-primary">
+                    +{dashboardStats.revenueGrowth.toFixed(1)}%
+                  </div>
                   <div className="text-sm text-muted-foreground">Growth Rate</div>
                 </div>
               </div>

@@ -93,7 +93,7 @@ export function RequirementCard({ requirement }) {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-end">
                 {/* <Badge
                   variant={
                     requirement.priority === "high"
