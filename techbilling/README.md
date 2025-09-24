@@ -1,51 +1,67 @@
-# TechBilling Development Roadmap ✅
+# TechBilling: A Modern Billing Dashboard
 
-## Phase 1: Project Setup
-- [x] Initialize Next.js project
-- [x] Install dependencies (UI framework, chart library)
-- [x] Create base folder structure (`pages`, `components`, etc.)
-- [x] Set up Context API boilerplate
+TechBilling is an interactive and responsive frontend application designed to present billing metrics and operational requirements for a fictional company. Built with Next.js, it provides a visually appealing and easy-to-navigate interface with interactive features for a seamless user experience.
 
----
+## Features
 
-## Phase 2: Mock Data
-- [x] Create `/mock-data` folder
-- [x] Add `data.json` with sample dashboard, requisitos, clientes, invoices
-- [ ] Import and use mock data in pages/components
+-   **Analytics Dashboard**: A comprehensive dashboard displaying key billing metrics:
+    -   Interactive charts for Monthly and Annual Revenue.
+    -   Total number of invoices issued.
+    -   Count of active customers for the current period.
+-   **Compliance Management**: A dedicated page to track and manage regulatory requirements:
+    -   Lists compliance tasks such as tax reports, audits, and documentation.
+    -   Displays important deadlines.
+    -   Includes a "Mark as Complete" feature to track progress.
+-   **Invoice Simulator**: A simple and intuitive form to:
+    -   Enter fictional client and line item data.
+    -   Generate a professional invoice preview on the frontend.
+-   **Fully Responsive**: The application is optimized for a seamless experience across desktop, tablet, and mobile devices.
 
----
+## Tech Stack
 
-## Phase 3: Dashboard Page
-- [ ] Create dashboard layout (navigation + content)
-- [ ] Implement charts (monthly & yearly revenue, invoices, clients)
-- [ ] Style with chosen UI framework
-- [ ] Add loading states if needed
+-   **Framework**: [Next.js](https://nextjs.org/)
+-   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+-   **State Management**: React Hooks & Context API
+-   **Charts**: [Recharts](https://recharts.org/)
+-   **UI Components**: [Radix UI](https://www.radix-ui.com/) (via shadcn/ui conventions)
+-   **Icons**: [Lucide React](https://lucide.dev/)
+-   **Class Variance Authority**: For managing component variants.
 
----
+## Getting Started
 
-## Phase 4: Requisitos Page
-- [ ] Create list of compliance requirements
-- [ ] Add “check” functionality with Context API
-- [ ] Persist checked state (localStorage optional)
-- [ ] Ensure responsiveness
+Follow these instructions to get a copy of the project up and running on your local machine for development and testing purposes.
 
----
+### Prerequisites
 
-## Phase 5: Simulação de Fatura
-- [ ] Build form (customer, items, date)
-- [ ] Generate invoice preview (frontend only)
-- [ ] Add form validation (optional)
-- [ ] Style preview clearly
+-   [Node.js](https://nodejs.org/en/) (v18.x or later recommended)
+-   [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
 
----
+### Installation
 
-## Phase 6: Componentization & Responsiveness
-- [ ] Refactor into reusable components (cards, charts, inputs)
-- [ ] Ensure responsive layout (desktop, tablet, mobile)
+1.  **Clone the repository:**
+    ```sh
+    git clone https://github.com/your-username/techbilling.git
+    ```
+2.  **Navigate to the project directory:**
+    ```sh
+    cd techbilling
+    ```
+3.  **Install dependencies:**
+    ```sh
+    npm install
+    ```
+    or if you use yarn:
+    ```sh
+    yarn install
+    ```
 
----
+### Running the Development Server
 
-## Phase 7: Final Touches
-- [ ] Write README with install/run instructions
-- [ ] Record demo video walkthrough
-- [ ] Push final code to GitHub
+Once the dependencies are installed, you can run the development server:
+
+```sh
+npm run dev
+```
+
+This will start the application on `http://localhost:3000`. Open this URL in your browser to see the application.
+
