@@ -24,23 +24,52 @@
   "requisitos": [
     {
       "id": 1,
-      "name": "Relatório de Impostos Trimestral",
+      "title": "Relatório de Impostos Trimestral",
+      "description": "Submissão da declaração de impostos referente ao último trimestre.",
+      "category": "tax",
+      "priority": "high",
       "deadline": "2024-10-30",
       "documents": ["Declaração IVA", "Resumo de Receitas"],
       "completed": false
     },
     {
       "id": 2,
-      "name": "Auditoria Anual",
+      "title": "Auditoria Anual",
+      "description": "Auditoria completa das contas anuais e registos financeiros.",
+      "category": "audit",
+      "priority": "high",
       "deadline": "2024-12-15",
       "documents": ["Balanço Contábil", "Registos de Transações"],
       "completed": false
     },
     {
       "id": 3,
-      "name": "Relatório de Compliance",
+      "title": "Relatório de Compliance",
+      "description": "Revisão e atualização das políticas de privacidade e contratos.",
+      "category": "documentation",
+      "priority": "medium",
       "deadline": "2025-01-10",
       "documents": ["Política de Privacidade", "Contrato Clientes"],
+      "completed": false
+    },
+    {
+      "id": 4,
+      "title": "Certificação de Segurança",
+      "description": "Renovação da certificação de segurança dos dados dos clientes.",
+      "category": "audit",
+      "priority": "medium",
+      "deadline": "2025-02-20",
+      "documents": ["Relatório de Pentest", "Certificado SSL"],
+      "completed": false
+    },
+    {
+      "id": 5,
+      "title": "Declaração de Rendimentos",
+      "description": "Preparação e submissão da declaração anual de rendimentos.",
+      "category": "tax",
+      "priority": "high",
+      "deadline": "2025-04-30",
+      "documents": ["Modelo 3", "Anexos"],
       "completed": false
     }
   ],

@@ -91,6 +91,7 @@ export function BillingProvider({ children }) {
         dashboardStats,
         revenueData: billingData?.revenueData,
         invoices: billingData?.invoices || [],
+        complianceRequirements: billingData?.requisitos || [],
         selectedPeriod,
         setSelectedPeriod,
     };
