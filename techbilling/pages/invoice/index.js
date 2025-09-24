@@ -22,7 +22,7 @@ export default function InvoicePage() {
 
   return (
     <div className="flex min-h-screen bg-background">
-      <div className="w-64 flex-shrink-0">
+      <div className="sticky top-0 h-screen w-64 flex-shrink-0">
         <Navigation />
       </div>
 

@@ -16,8 +16,7 @@ export function Navigation() {
   const pathname = usePathname()
 
   return (
-    <nav className="bg-sidebar border-r border-sidebar-border min-h-screen">
-      <div className="flex flex-col h-full">
+    <nav className="bg-sidebar border-r border-sidebar-border min-h-screen flex flex-col">
         {/* Logo */}
         <div className="flex items-center gap-2 p-6 border-b border-sidebar-border">
           <Building2 className="h-8 w-8 text-sidebar-primary" />
@@ -52,13 +51,9 @@ export function Navigation() {
           </ul>
         </div>
 
-        <div className="p-4 border-t border-sidebar-border space-y-3">
-          <div className="flex justify-center">
-         
-          </div>
+        <div className="p-4 border-t border-sidebar-border">
           <p className="text-xs text-sidebar-foreground/60 text-center">© 2025 TechBilling</p>
         </div>
-      </div>
     </nav>
   )
 }
