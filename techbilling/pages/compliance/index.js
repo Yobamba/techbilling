@@ -13,12 +13,12 @@ import { useState } from "react"
 
 export default function CompliancePage() {
   const { complianceRequirements, billingData } = useBilling()
+  const [filterCategory, setFilterCategory] = useState("all")
+  const [filterPriority, setFilterPriority] = useState("all")
 
   if (!billingData) {
     return <div className="flex min-h-screen bg-background justify-center items-center">Loading...</div>
   }
-  const [filterCategory, setFilterCategory] = useState("all")
-  const [filterPriority, setFilterPriority] = useState("all")
 
   const filteredRequirements = complianceRequirements.filter((req) => {
     const categoryMatch = filterCategory === "all" || req.category === filterCategory
