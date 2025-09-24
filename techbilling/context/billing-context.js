@@ -86,6 +86,24 @@ export function BillingProvider({ children }) {
 
     }, [billingData, selectedPeriod]);
 
+    const toggleRequirementCompletion = (requirementId) => {
+        setBillingData(prevData => {
+            if (!prevData) return null;
+
+            const updatedRequisitos = prevData.requisitos.map(req => {
+                if (req.id === requirementId) {
+                    return { ...req, completed: !req.completed };
+                }
+                return req;
+            });
+
+            return {
+                ...prevData,
+                requisitos: updatedRequisitos,
+            };
+        });
+    };
+
     const value = {
         billingData,
         dashboardStats,
@@ -94,6 +112,7 @@ export function BillingProvider({ children }) {
         complianceRequirements: billingData?.requisitos || [],
         selectedPeriod,
         setSelectedPeriod,
+        toggleRequirementCompletion,
     };
 
     return (
