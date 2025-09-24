@@ -77,7 +77,7 @@ export function InvoiceForm({ onSubmit }) {
     onSubmit(formData)
   }
 
-  const isFormValid = customer.name && customer.email && customer.company && items.some((item) => item.description)
+  const isFormValid = customer.name && customer.email && customer.company && customer.address && items.some((item) => item.description)
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
