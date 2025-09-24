@@ -6,8 +6,8 @@ import { usePathname } from "next/navigation"
 import { BarChart3, FileCheck, FileText, Home, Building2 } from "lucide-react"
 
 const navigation = [
-  { name: "Dashboard", href: "/", icon: Home },
-  { name: "Analytics", href: "/dashboard", icon: BarChart3 },
+  { name: "Home", href: "/", icon: Home },
+  { name: "Dashboard", href: "/dashboard", icon: BarChart3 },
   { name: "Compliance", href: "/compliance", icon: FileCheck },
   { name: "Invoice Simulator", href: "/invoice", icon: FileText },
 ]

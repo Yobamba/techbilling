@@ -1,7 +1,7 @@
 "use client"
 
 import { Card, CardContent } from "../../components/ui/card"
-// import { Badge } from "@/components/ui/badge"
+import { Badge } from "../ui/badge"
 import { Checkbox } from "../ui/checkbox"
 import { Button } from "../ui/button"
 import { useBilling } from "../../context/billing-context"
@@ -93,8 +93,8 @@ export function RequirementCard({ requirement }) {
                 </div>
               </div>
 
-              <div className="flex items-center justify-end">
-                {/* <Badge
+              <div className="flex items-center justify-between">
+                <Badge
                   variant={
                     requirement.priority === "high"
                       ? "destructive"
@@ -105,7 +105,7 @@ export function RequirementCard({ requirement }) {
                   className="capitalize"
                 >
                   {requirement.priority} Priority
-                </Badge> */}
+                </Badge>
 
                 {!requirement.completed && (
                   <Button size="sm" variant="outline" onClick={() => toggleRequirementCompletion(requirement.id)}>

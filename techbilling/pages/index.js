@@ -104,7 +104,7 @@ export default function HomePage() {
               <CardContent>
                 <p className="text-sm text-muted-foreground mb-4">
                   Create professional invoice previews with our easy-to-use form. Perfect for testing and client
-                  presentations.
+                  presentations. All previews can be downloaded. 
                 </p>
                 <Button asChild variant="contained" className="w-full">
                   <Link href="/invoice">
