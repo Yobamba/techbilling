@@ -238,7 +238,7 @@ export function InvoiceForm({ onSubmit }) {
 
       {/* Submit Button */}
       <div className="flex justify-end">
-        <Button type="submit" disabled={!isFormValid} className="px-8">
+        <Button onClick={handleSubmit} disabled={!isFormValid} className="px-8">
           Generate Preview
         </Button>
       </div>
