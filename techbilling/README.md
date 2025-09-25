@@ -2,6 +2,10 @@
 
 TechBilling is an interactive and responsive frontend application designed to present billing metrics and operational requirements for a fictional company. Built with Next.js, it provides a visually appealing and easy-to-navigate interface with interactive features for a seamless user experience.
 
+## Live Demo
+Check out the app live at https://techbilling.vercel.app/
+
+
 ## Features
 
 -   **Analytics Dashboard**: A comprehensive dashboard displaying key billing metrics:
