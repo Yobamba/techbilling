@@ -40,7 +40,9 @@ export function InvoiceForm({ onSubmit }) {
 
     // Recalculate total for this item
     if (field === "quantity" || field === "unitPrice") {
-      updatedItems[index].total = updatedItems[index].quantity * updatedItems[index].unitPrice
+      const quantity = Number(updatedItems[index].quantity) || 0
+      const unitPrice = Number(updatedItems[index].unitPrice) || 0
+      updatedItems[index].total = quantity * unitPrice
     }
 
     setItems(updatedItems)
@@ -169,7 +171,8 @@ export function InvoiceForm({ onSubmit }) {
                       type="number"
                       min="1"
                       value={item.quantity}
-                      onChange={(e) => updateItem(index, "quantity", Number.parseInt(e.target.value) || 1)}
+                      onChange={(e) => updateItem(index, "quantity", e.target.value)}
+                      onFocus={(e) => e.target.select()}
                     />
                   </div>
                   <div className="md:col-span-2">
@@ -180,7 +183,8 @@ export function InvoiceForm({ onSubmit }) {
                       min="0"
                       step="0.01"
                       value={item.unitPrice}
-                      onChange={(e) => updateItem(index, "unitPrice", Number.parseFloat(e.target.value) || 0)}
+                      onChange={(e) => updateItem(index, "unitPrice", e.target.value)}
+                      onFocus={(e) => e.target.select()}
                     />
                   </div>
                   <div className="md:col-span-2">
