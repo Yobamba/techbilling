@@ -96,8 +96,8 @@ export function InvoicePreview({ invoiceData, onBack }) {
                     <div className="grid grid-cols-12 gap-4 text-sm">
                       <div className="col-span-6">{item.description}</div>
                       <div className="col-span-2 text-center">{item.quantity}</div>
-                      <div className="col-span-2 text-right">${item.unitPrice.toFixed(2)}</div>
-                      <div className="col-span-2 text-right font-medium">${item.total.toFixed(2)}</div>
+                      <div className="col-span-2 text-right">${Number(item.unitPrice).toFixed(2)}</div>
+                      <div className="col-span-2 text-right font-medium">${Number(item.total).toFixed(2)}</div>
                     </div>
                   </div>
                 ))}
